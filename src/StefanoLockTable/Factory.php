@@ -13,7 +13,7 @@ class Factory
     public function createAdapter($vendorName) {
         $vendorName = (string) ucfirst(strtolower(trim($vendorName)));
 
-        $adapterClass = __NAMESPACE__ . '\\adapter\\' . $vendorName;
+        $adapterClass = '\\' . __NAMESPACE__ . '\\Adapter\\' . $vendorName;
 
         if(class_exists($adapterClass)) {
             return new $adapterClass();
