@@ -3,7 +3,7 @@ Stefano Lock Table
 
 | Test Status | Code Coverage | Dependencies |
 | :---: | :---: | :---: |
-| <a href="https://travis-ci.org/bartko-s/stefano-lock-table"><img src="https://secure.travis-ci.org/bartko-s/stefano-lock-table.png?branch=master" /></a> | <a href='https://coveralls.io/r/bartko-s/stefano-lock-table?branch=master'><img src='https://coveralls.io/repos/bartko-s/stefano-lock-table/badge.png?branch=master' alt='Coverage Status' /></a> | - |
+| <a href="https://travis-ci.org/bartko-s/stefano-lock-table"><img src="https://secure.travis-ci.org/bartko-s/stefano-lock-table.png?branch=master" /></a> | <a href='https://coveralls.io/r/bartko-s/stefano-lock-table?branch=master'><img src='https://coveralls.io/repos/bartko-s/stefano-lock-table/badge.png?branch=master' alt='Coverage Status' /></a> | <a href='https://www.versioneye.com/user/projects/52e13769ec13751a000000b0'><img src='https://www.versioneye.com/user/projects/52e13769ec13751a000000b0/badge.png' alt="Dependency Status" /></a> |
 
 Instalation using Composer
 --------------------------
