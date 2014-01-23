@@ -11,3 +11,22 @@ Instalation using Composer
 
 Features
 ------------
+- build lock table sql query
+- supported vendors mysql, postgresql
+
+Usage
+-----
+
+```
+$factory = new \StefanoLockTable\Factory();
+
+$vendor = 'Mysql'; //or any supported database
+$adapter = $factory->createAdapter($vendor);
+
+//buil lock table sql string (exclusive lock)
+$adapter->getLockSqlString('tableName');
+$adapter->getLockSqlString(array('tableName', 'anotherTable'));
+
+//buil unlock table sql string
+$adapter->getUnlockSqlString();
+```
