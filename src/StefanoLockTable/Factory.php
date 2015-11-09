@@ -1,25 +1,27 @@
 <?php
 namespace StefanoLockTable;
 
-use StefanoLockTable\Adapter\AdapterInterface;
+use StefanoLockTable\Adapter;
 use StefanoLockTable\Exception\InvalidArgumentException;
 
 class Factory
 {
     /**
      * @param string $vendorName
-     * @return AdapterInterface
+     * @return Adapter\AdapterInterface
      */
     public function createAdapter($vendorName) {
-        $vendorName = (string) ucfirst(strtolower(trim($vendorName)));
+        $vendorName = (string) strtolower(trim($vendorName));
 
-        $adapterClass = '\\' . __NAMESPACE__ . '\\Adapter\\' . $vendorName;
-
-        if(class_exists($adapterClass)) {
-            return new $adapterClass();
+        if('mysql' == $vendorName) {
+            $adapter = new Adapter\Mysql();
+        } elseif(in_array($vendorName, array('postgresql', 'pgsql'))) {
+            $adapter = new Adapter\Postgresql();
         } else {
             throw new InvalidArgumentException('Cannot create adapter. "'
                 . $vendorName . '" is not supported');
         }
+
+        return $adapter;
     }
 }

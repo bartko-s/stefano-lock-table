@@ -16,6 +16,8 @@ class FactoryTest
             array('postgresql', '\StefanoLockTable\Adapter\Postgresql'),
             array('Postgresql', '\StefanoLockTable\Adapter\Postgresql'),
             array('posTGrEsql', '\StefanoLockTable\Adapter\Postgresql'),
+            array('pgsql', '\StefanoLockTable\Adapter\Postgresql'),
+            array('PgSqL', '\StefanoLockTable\Adapter\Postgresql'),
         );
     }
 
@@ -33,7 +35,7 @@ class FactoryTest
         $factory = new Factory();
 
         $this->setExpectedException('\StefanoLockTable\Exception\InvalidArgumentException',
-            'Cannot create adapter. "Unsupporteddatabase" is not supported');
+            'Cannot create adapter. "unsupporteddatabase" is not supported');
 
         $factory->createAdapter('unsupportedDatabase');
     }
