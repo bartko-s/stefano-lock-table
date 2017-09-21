@@ -1,28 +1,34 @@
 <?php
 namespace StefanoLockTableTest\Unit;
 
+use StefanoLockTable\Adapter\Mysql as MysqlAdapter;
+use StefanoLockTable\Adapter\Postgresql as PostgreSqlAdapter;
+use StefanoLockTable\Exception\InvalidArgumentException;
 use StefanoLockTable\Factory;
+use StefanoLockTableTest\TestCase;
 
 class FactoryTest
-    extends \PHPUnit_Framework_TestCase
+    extends TestCase
 {
     public function dataProvider() {
         return array(
             //Mysql
-            array('mysql', '\StefanoLockTable\Adapter\Mysql'),
-            array('Mysql', '\StefanoLockTable\Adapter\Mysql'),
-            array('mySQl', '\StefanoLockTable\Adapter\Mysql'),
-            //Postgesql
-            array('postgresql', '\StefanoLockTable\Adapter\Postgresql'),
-            array('Postgresql', '\StefanoLockTable\Adapter\Postgresql'),
-            array('posTGrEsql', '\StefanoLockTable\Adapter\Postgresql'),
-            array('pgsql', '\StefanoLockTable\Adapter\Postgresql'),
-            array('PgSqL', '\StefanoLockTable\Adapter\Postgresql'),
+            array('mysql', MysqlAdapter::class),
+            array('Mysql', MysqlAdapter::class),
+            array('mySQl', MysqlAdapter::class),
+            //Postgresql
+            array('postgresql', PostgreSqlAdapter::class),
+            array('Postgresql', PostgreSqlAdapter::class),
+            array('posTGrEsql', PostgreSqlAdapter::class),
+            array('pgsql', PostgreSqlAdapter::class),
+            array('PgSqL', PostgreSqlAdapter::class),
         );
     }
 
     /**
      * @dataProvider dataProvider
+     * @param string $vendorName
+     * @param string $expectedClass
      */
     public function test($vendorName, $expectedClass) {
         $factory = new Factory();
@@ -31,11 +37,11 @@ class FactoryTest
         $this->assertInstanceOf($expectedClass, $adapter);
     }
 
-    public function testThrowExcecptionIfVendorIsNotSupported() {
+    public function testThrowExceptionIfVendorIsNotSupported() {
         $factory = new Factory();
 
-        $this->setExpectedException('\StefanoLockTable\Exception\InvalidArgumentException',
-            'Cannot create adapter. "unsupporteddatabase" is not supported');
+        $this->expectException(InvalidArgumentException::class);
+        $this->expectExceptionMessage('Cannot create adapter. "unsupporteddatabase" is not supported');
 
         $factory->createAdapter('unsupportedDatabase');
     }

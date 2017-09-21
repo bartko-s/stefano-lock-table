@@ -2,7 +2,6 @@
 namespace StefanoLockTableTest\Unit\Adapter;
 
 use StefanoLockTable\Adapter\Mysql;
-use StefanoLockTableTest\Unit\Adapter\AbstractTest;
 
 class MysqlTest
     extends AbstractTest

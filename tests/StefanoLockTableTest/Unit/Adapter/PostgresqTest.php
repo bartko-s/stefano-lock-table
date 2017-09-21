@@ -2,7 +2,6 @@
 namespace StefanoLockTableTest\Unit\Adapter;
 
 use StefanoLockTable\Adapter\Postgresql;
-use StefanoLockTableTest\Unit\Adapter\AbstractTest;
 
 class PostgresqlTest
     extends AbstractTest

@@ -1,8 +1,11 @@
 <?php
 namespace StefanoLockTableTest\Unit\Adapter;
 
+use StefanoLockTable\Adapter\AdapterInterface;
+use StefanoLockTableTest\TestCase;
+
 abstract class AbstractTest
-    extends \PHPUnit_Framework_TestCase
+    extends TestCase
 {
     /**
      * @return \StefanoLockTable\Adapter\AdapterInterface
@@ -10,7 +13,6 @@ abstract class AbstractTest
     abstract protected function getAdapter();
 
     public function testAdapterImplementsRequiredInterface() {
-        $this->assertInstanceOf('\StefanoLockTable\Adapter\AdapterInterface',
-            $this->getAdapter());
+        $this->assertInstanceOf(AdapterInterface::class, $this->getAdapter());
     }
 }
