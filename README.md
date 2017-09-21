@@ -7,7 +7,7 @@ Stefano Lock Table
 
 Instalation using Composer
 --------------------------
-1. Add following line to composer.json  ``` "stefano/stefano-lock-table": "*" ```
+1. Run command  ``` composer require stefano/stefano-lock-table ```
 
 Features
 ------------
