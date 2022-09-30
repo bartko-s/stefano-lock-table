@@ -19,7 +19,7 @@
         "php": ">=7.0.0"
     },
     "require-dev": {
-        "phpunit/PHPUnit": "^6.0.0",
+        "phpunit/phpunit": ">=7 <10",
         "mockery/mockery": "^0.9.0",
         "satooshi/php-coveralls": "dev-master"
     },
